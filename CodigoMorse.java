@@ -33,8 +33,17 @@ public class CodigoMorse {
         MORSE_TO_TEXT.put("-..-", "X");
         MORSE_TO_TEXT.put("-.--", "Y");
         MORSE_TO_TEXT.put("--..", "Z");
+        MORSE_TO_TEXT.put("-----", "0");
+        MORSE_TO_TEXT.put(".----", "1");
+        MORSE_TO_TEXT.put("..---", "2");
+        MORSE_TO_TEXT.put("...--", "3");
+        MORSE_TO_TEXT.put("....-", "4");
+        MORSE_TO_TEXT.put(".....", "5");
+        MORSE_TO_TEXT.put("-....", "6");
+        MORSE_TO_TEXT.put("--...", "7");
+        MORSE_TO_TEXT.put("---..", "8");
+        MORSE_TO_TEXT.put("----.", "9");
         MORSE_TO_TEXT.put("/", " ");
-        // Add the rest of the Morse code mappings...
 
         for (Map.Entry<String, String> entry : MORSE_TO_TEXT.entrySet()) {
             TEXT_TO_MORSE.put(entry.getValue(), entry.getKey());

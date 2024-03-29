@@ -6,4 +6,5 @@ public class NormalizadorDeTexto {
      Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
      return pattern.matcher(nfdNormalizedString).replaceAll("").toUpperCase();
  }
+ 
 }
