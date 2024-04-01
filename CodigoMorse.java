@@ -56,7 +56,6 @@ public class CodigoMorse {
         System.out.println("-------------------------");
         System.out.print("Digite sua mensagem: ");
         String textoCriptografado = scanner.nextLine();
-        textoCriptografado = NormalizadorDeTexto.removeAccents(textoCriptografado);
 
 
         String textoDecriptado = decifrar(textoCriptografado);
@@ -82,8 +81,8 @@ public class CodigoMorse {
         textoCriptografado = NormalizadorDeTexto.removeAccents(textoCriptografado);
 
 
-        String textoDecriptado = encriptar(textoCriptografado);
-        System.out.println("Texto Encriptado: " + textoDecriptado);
+        String textoEncriptado = encriptar(textoCriptografado);
+        System.out.println("Texto Encriptado: " + textoEncriptado);
     }
     
     private static String encriptar(String texto) {

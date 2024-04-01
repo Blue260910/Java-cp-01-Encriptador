@@ -27,6 +27,27 @@ public class Main {
 
         scanner.close();
     }
+    
+    private static void manipularCodigoMorse(Scanner scanner) {
+        System.out.println("Escolheu Codigo Morse");
+        System.out.println("-------------------------");
+        System.out.println("Você deseja decriptar ou encriptar uma mensagem? ");
+        System.out.println(OPCAO_1 + " - Decriptar");
+        System.out.println(OPCAO_2 + " - Encriptar");
+        System.out.print("Digite " + OPCAO_1 + " ou " + OPCAO_2 + ": ");
+        String escolhaTipoEncriptacao = scanner.nextLine();
+
+        switch (escolhaTipoEncriptacao) {
+            case OPCAO_1:
+                CodigoMorse.manipularDecriptacao(scanner);
+                break;
+            case OPCAO_2:
+                CodigoMorse.manipularEncriptacao(scanner);
+                break;
+            default:
+                System.out.println("Opção inválida");
+        }
+    }
 
     private static void manipularCifraCesar(Scanner scanner) {
         System.out.println("Escolheu Cifra de César");
@@ -49,24 +70,4 @@ public class Main {
         }
     }
 
-    private static void manipularCodigoMorse(Scanner scanner) {
-        System.out.println("Escolheu Codigo Morse");
-        System.out.println("-------------------------");
-        System.out.println("Você deseja decriptar ou encriptar uma mensagem? ");
-        System.out.println(OPCAO_1 + " - Decriptar");
-        System.out.println(OPCAO_2 + " - Encriptar");
-        System.out.print("Digite " + OPCAO_1 + " ou " + OPCAO_2 + ": ");
-        String escolhaTipoEncriptacao = scanner.nextLine();
-
-        switch (escolhaTipoEncriptacao) {
-            case OPCAO_1:
-                CodigoMorse.manipularDecriptacao(scanner);
-                break;
-            case OPCAO_2:
-                CodigoMorse.manipularEncriptacao(scanner);
-                break;
-            default:
-                System.out.println("Opção inválida");
-        }
-    }
 }
