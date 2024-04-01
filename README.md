@@ -2,6 +2,10 @@
 
 Este é um aplicativo Java simples que pode traduzir texto para código Morse e código Morse de volta para texto, além de criptografar e descriptografar texto usando a Cifra de César.
 
+### Grupo
+- André Lambert, RM 99148
+- Victor Aranda, RM 99667
+
 ## Recursos
 
 - **Texto para Código Morse**: Insira uma string de texto e obtenha o código Morse equivalente.
