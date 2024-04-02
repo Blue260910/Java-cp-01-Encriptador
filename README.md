@@ -27,4 +27,4 @@ Este aplicativo suporta apenas o alfabeto inglês e números de 0-9.
 
 ## Contribuindo
 
-Solicitações pull são bem-vindas. Para alterações importantes, abra primeiro uma issue para discutir o que você gostaria de mudar.
+[Fluxograma do codigo](https://www.codediagram.io/app/shares?token=cb6cbbc3)

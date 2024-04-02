@@ -56,43 +56,32 @@ public class CodigoMorse {
         System.out.println("-------------------------");
         System.out.print("Digite sua mensagem: ");
         String textoCriptografado = scanner.nextLine();
-
-
-        String textoDecriptado = decifrar(textoCriptografado);
-        System.out.println("Texto Decriptado: " + textoDecriptado);
-    }
-
-    private static String decifrar(String codigoMorse) {
+    
         StringBuilder textoDecifrado = new StringBuilder();
-
-        for (String codigo : codigoMorse.split(" ")) {
+    
+        for (String codigo : textoCriptografado.split(" ")) {
             String letra = MORSE_TO_TEXT.get(codigo);
             textoDecifrado.append(letra);
         }
-
-        return textoDecifrado.toString();
+    
+        System.out.println("Texto Decriptado: " + textoDecifrado.toString());
     }
 
     public static void manipularEncriptacao(Scanner scanner) {
-        System.out.println("Escolheu Decriptar");
+        System.out.println("Escolheu Encriptar");
         System.out.println("-------------------------");
         System.out.print("Digite sua mensagem: ");
-        String textoCriptografado = scanner.nextLine();
-        textoCriptografado = NormalizadorDeTexto.removeAccents(textoCriptografado);
-
-
-        String textoEncriptado = encriptar(textoCriptografado);
-        System.out.println("Texto Encriptado: " + textoEncriptado);
-    }
+        String textoDecifrado = scanner.nextLine();
+        textoDecifrado = NormalizadorDeTexto.removeAccents(textoDecifrado);
     
-    private static String encriptar(String texto) {
         StringBuilder codigoMorse = new StringBuilder();
-
-        for (char letra : texto.toCharArray()) {
+    
+        for (char letra : textoDecifrado.toCharArray()) {
             String codigo = TEXT_TO_MORSE.get(String.valueOf(letra));
             codigoMorse.append(codigo).append(" ");
         }
-
-        return codigoMorse.toString().trim();
+    
+        String textoEncriptado = codigoMorse.toString().trim();
+        System.out.println("Texto Encriptado: " + textoEncriptado);
     }
 }

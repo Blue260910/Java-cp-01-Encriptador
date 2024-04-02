@@ -27,7 +27,7 @@ public class Main {
 
         scanner.close();
     }
-    
+
     private static void manipularCodigoMorse(Scanner scanner) {
         System.out.println("Escolheu Codigo Morse");
         System.out.println("-------------------------");
@@ -60,10 +60,10 @@ public class Main {
 
         switch (escolhaTipoEncriptacao) {
             case OPCAO_1:
-                DecifradorCifraCesar.manipularDecriptacao(scanner);
+                CifraCesar.manipularDecriptacao(scanner);
                 break;
             case OPCAO_2:
-                DecifradorCifraCesar.manipularEncriptacao(scanner);
+                CifraCesar.manipularEncriptacao(scanner);
                 break;
             default:
                 System.out.println("Opção inválida");
