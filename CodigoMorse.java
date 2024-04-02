@@ -63,6 +63,11 @@ public class CodigoMorse {
 
         // Solicita ao usuário que insira a mensagem a ser decriptada
         String textoCriptografado = scanner.nextLine();
+        if (!textoCriptografado.matches("[.-/ ]+")) {
+            System.out.println("Mensagem inválida");
+            return;
+        }
+       
     
         // Cria um StringBuilder para armazenar a mensagem decriptada
         StringBuilder textoDecifrado = new StringBuilder();
