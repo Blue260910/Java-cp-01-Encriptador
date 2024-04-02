@@ -3,10 +3,13 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class CodigoMorse {
+    // Mapas para armazenar as correspondências entre texto e código Morse
     private static final Map<String, String> MORSE_TO_TEXT = new HashMap<>();
     private static final Map<String, String> TEXT_TO_MORSE = new HashMap<>();
 
+    // Bloco estático para inicializar os mapas
     static {
+        // Preenche o mapa MORSE_TO_TEXT com as correspondências entre código Morse e texto
         MORSE_TO_TEXT.put(".-", "A");
         MORSE_TO_TEXT.put("-...", "B");
         MORSE_TO_TEXT.put("-.-.", "C");
@@ -45,42 +48,58 @@ public class CodigoMorse {
         MORSE_TO_TEXT.put("----.", "9");
         MORSE_TO_TEXT.put("/", " ");
 
+
+        // Preenche o mapa TEXT_TO_MORSE com as correspondências entre texto e código Morse
         for (Map.Entry<String, String> entry : MORSE_TO_TEXT.entrySet()) {
             TEXT_TO_MORSE.put(entry.getValue(), entry.getKey());
         }
     }
 
-
+    // Função para decriptar uma mensagem em código Morse
     public static void manipularDecriptacao(Scanner scanner) {
         System.out.println("Escolheu Decriptar");
         System.out.println("-------------------------");
         System.out.print("Digite sua mensagem: ");
+
+        // Solicita ao usuário que insira a mensagem a ser decriptada
         String textoCriptografado = scanner.nextLine();
     
+        // Cria um StringBuilder para armazenar a mensagem decriptada
         StringBuilder textoDecifrado = new StringBuilder();
-    
+
+
+        // Para cada código Morse na mensagem, busca a letra correspondente e a anexa ao textoDecifrado    
         for (String codigo : textoCriptografado.split(" ")) {
             String letra = MORSE_TO_TEXT.get(codigo);
             textoDecifrado.append(letra);
         }
     
+        // Imprime a mensagem decriptada
         System.out.println("Texto Decriptado: " + textoDecifrado.toString());
     }
 
+    // Função para encriptar uma mensagem em código Morse
     public static void manipularEncriptacao(Scanner scanner) {
         System.out.println("Escolheu Encriptar");
         System.out.println("-------------------------");
         System.out.print("Digite sua mensagem: ");
+
+        // Solicita ao usuário que insira a mensagem a ser encriptada
         String textoDecifrado = scanner.nextLine();
+
+        // Normaliza a mensagem removendo acentos
         textoDecifrado = NormalizadorDeTexto.removeAccents(textoDecifrado);
     
+        // Cria um StringBuilder para armazenar a mensagem encriptada
         StringBuilder codigoMorse = new StringBuilder();
     
+        // Para cada letra na mensagem, busca o código Morse correspondente e o anexa ao codigoMorse
         for (char letra : textoDecifrado.toCharArray()) {
             String codigo = TEXT_TO_MORSE.get(String.valueOf(letra));
             codigoMorse.append(codigo).append(" ");
         }
     
+        // Imprime a mensagem encriptada
         String textoEncriptado = codigoMorse.toString().trim();
         System.out.println("Texto Encriptado: " + textoEncriptado);
     }
