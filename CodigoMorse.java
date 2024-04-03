@@ -90,10 +90,12 @@ public class CodigoMorse {
         System.out.print("Digite sua mensagem: ");
 
         // Solicita ao usuário que insira a mensagem a ser encriptada
-        String textoDecifrado = scanner.nextLine();
+        String textoDecifrado = scanner.nextLine().toUpperCase();
 
-        // Normaliza a mensagem removendo acentos
-        textoDecifrado = NormalizadorDeTexto.removeAccents(textoDecifrado);
+        if (textoDecifrado.isEmpty() || !textoDecifrado.matches("[A-Z\\s]+")) {
+            System.out.println("Erro: você deve digitar uma mensagem sem caracteres especiais. Tente novamente.");
+            System.exit(1);
+        }
     
         // Cria um StringBuilder para armazenar a mensagem encriptada
         StringBuilder codigoMorse = new StringBuilder();

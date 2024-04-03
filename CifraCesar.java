@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class CifraCesar {
 
     // Função para decriptar uma mensagem usando a cifra de César
@@ -9,11 +8,12 @@ public class CifraCesar {
         System.out.print("Digite sua mensagem: ");
 
         // Solicita ao usuário que insira a mensagem a ser decriptada
-        String textoCriptografado = scanner.nextLine();
+        String textoCriptografado = scanner.nextLine().toUpperCase();
 
-        // Normaliza a mensagem removendo acentos
-        textoCriptografado = NormalizadorDeTexto.removeAccents(textoCriptografado);
-        
+        if (textoCriptografado.isEmpty() || !textoCriptografado.matches("[A-Z\\s]+")) {
+            System.out.println("Erro: você deve digitar uma mensagem sem caracteres especiais. Tente novamente.");
+            System.exit(1);
+        }
 
         // Solicita ao usuário que insira a chave de deslocamento
         System.out.print("Digite a chave: ");
@@ -23,6 +23,7 @@ public class CifraCesar {
         }
         int deslocamento = scanner.nextInt();
         deslocamento = deslocamento % 26;
+        System.out.println("Deslocamento: " + deslocamento);
     
         // Cria um StringBuilder para armazenar a mensagem decriptada
         StringBuilder textoDecifrado = new StringBuilder();
@@ -33,7 +34,7 @@ public class CifraCesar {
             char caractere = textoCriptografado.charAt(i);
     
             if (Character.isLetter(caractere)) {
-                char caractereDecifrado = (char) (caractere - deslocamento);
+                char caractereDecifrado = (char) ((caractere - 'A' - deslocamento + 26) % 26 + 'A');
                 textoDecifrado.append(caractereDecifrado);
             } else {
                 textoDecifrado.append(caractere);
@@ -51,10 +52,12 @@ public class CifraCesar {
         System.out.print("Digite sua mensagem: ");
 
         // Solicita ao usuário que insira a mensagem a ser encriptada
-        String textoCriptografado = scanner.nextLine();
+        String textoCriptografado = scanner.nextLine().toUpperCase();
 
-        // Normaliza a mensagem removendo acentos
-        textoCriptografado = NormalizadorDeTexto.removeAccents(textoCriptografado);
+        if (textoCriptografado.isEmpty() || !textoCriptografado.matches("[A-Z\\s]+")) {
+            System.out.println("Erro: você deve digitar uma mensagem sem caracteres especiais. Tente novamente.");
+            System.exit(1);
+        }
 
         // Solicita ao usuário que insira a chave de deslocamento
         System.out.print("Digite a chave: ");
@@ -74,7 +77,7 @@ public class CifraCesar {
             char caractere = textoCriptografado.charAt(i);
 
             if (Character.isLetter(caractere)) {
-                char caractereEncriptado = (char) (caractere + deslocamento);
+                char caractereEncriptado = (char) ((caractere - 'A' + deslocamento) % 26 + 'A');
                 textoEncriptado.append(caractereEncriptado);
             } else {
                 textoEncriptado.append(caractere);
