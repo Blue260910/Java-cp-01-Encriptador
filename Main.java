@@ -39,9 +39,7 @@ public class Main {
                 System.out.println("-------------------------------------------------");
                 System.out.println("Opção inválida");
         }
-
         scanner.close();
-        
     }
 
     // Função para manipular o código Morse
@@ -79,20 +77,20 @@ public class Main {
         System.out.println("--------------------------------------------------");
         System.out.println(OPCAO_1 + " - Decriptar");
         System.out.println(OPCAO_2 + " - Encriptar");
-        System.out.println("--------------------------------------------------");
-        System.out.print("Digite " + OPCAO_1 + " ou " + OPCAO_2 + ": ");
-        String escolhaTipoEncriptacao = scanner.nextLine();
+                System.out.println("--------------------------------------------------");
+                System.out.print("Digite " + OPCAO_1 + " ou " + OPCAO_2 + ": ");
+                String escolhaTipoEncriptacao = scanner.nextLine();
 
-        // Dependendo da escolha do usuário, o programa irá decriptar ou encriptar a mensagem em cifra de César
-        switch (escolhaTipoEncriptacao) {
-            case OPCAO_1:
-                CifraCesar.manipularDecriptacao(scanner);
-                break;
-            case OPCAO_2:
-                CifraCesar.manipularEncriptacao(scanner);
-                break;
-            default:
-                System.out.println("Opção inválida");
-        }
+                // Dependendo da escolha do usuário, o programa irá decriptar ou encriptar a mensagem em cifra de César
+                switch (escolhaTipoEncriptacao) {
+                    case OPCAO_1:
+                        CifraCesar.manipularDecriptacao(scanner);
+                        break;
+                    case OPCAO_2:
+                        CifraCesar.manipularEncriptacao(scanner);
+                        break;
+                    default:
+                        System.out.println("Opção inválida");
+                }
     }
 }

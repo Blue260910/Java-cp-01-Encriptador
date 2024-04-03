@@ -63,8 +63,9 @@ public class CodigoMorse {
 
         // Solicita ao usuário que insira a mensagem a ser decriptada
         String textoCriptografado = scanner.nextLine();
-        if (!textoCriptografado.matches("[.-/ ]+")) {
+        if (!textoCriptografado.matches("[-./\\s]+")) {
             System.out.println("Mensagem inválida");
+            System.out.println(textoCriptografado);
             return;
         }
        
@@ -92,7 +93,7 @@ public class CodigoMorse {
         // Solicita ao usuário que insira a mensagem a ser encriptada
         String textoDecifrado = scanner.nextLine().toUpperCase();
 
-        if (textoDecifrado.isEmpty() || !textoDecifrado.matches("[A-Z\\s]+")) {
+        if (textoDecifrado.isEmpty() || !textoDecifrado.matches("[A-Z\\s0-9]+")) {
             System.out.println("Erro: você deve digitar uma mensagem sem caracteres especiais. Tente novamente.");
             System.exit(1);
         }

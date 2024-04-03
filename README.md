@@ -12,7 +12,6 @@ Este é um aplicativo Java simples que pode traduzir texto para código Morse e 
 - **Código Morse para Texto**: Insira uma string de código Morse e obtenha o texto equivalente.
 - **Criptografia com Cifra de César**: Insira uma string de texto e uma chave para obter o texto criptografado.
 - **Descriptografia com Cifra de César**: Insira uma string de texto criptografado e uma chave para obter o texto original.
-- **Normalização de Texto**: O aplicativo remove automaticamente acentos do texto de entrada e o converte para maiúsculas.
 
 ## Uso
 
